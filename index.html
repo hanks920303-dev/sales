@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>您的商譽守護系統 - 老闆專用</title>
+    <style>
+        :root {
+            --bg-color: #000000; /* 黑色底，強調權威 */
+            --text-main: #FFFFFF;
+            --text-sub: #AAAAAA;
+            --accent-gold: #C5A065; /* 星宇金 */
+            --danger-red: #FF4D4D;
+            --safe-green: #4CAF50;
+            --card-bg: #1A1A1A;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.5;
+            padding-bottom: 80px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Hero Section */
+        header {
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 1px solid #333;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .highlight { color: var(--accent-gold); }
+        
+        p.intro {
+            color: var(--text-sub);
+            font-size: 1.1rem;
+            margin-top: 15px;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 40px 20px;
+            border-bottom: 1px solid #222;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: var(--accent-gold);
+            margin: 15px auto 0;
+        }
+
+        /* Q1: 智慧分流圖解 */
+        .flow-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .flow-box {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .flow-title { font-weight: bold; margin-bottom: 10px; display: block; }
+        .bad-path { border-left: 4px solid var(--danger-red); }
+        .good-path { border-left: 4px solid var(--accent-gold); }
+
+        .arrow-down { text-align: center; font-size: 20px; color: #555; }
+
+        /* Q2: 風險對比 */
+        .comparison {
+            display: flex;
+            gap: 10px;
+        }
+        .compare-card {
+            flex: 1;
+            background: var(--card-bg);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        .compare-img {
+            width: 100%;
+            height: 80px;
+            background: #333;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #777;
+        }
+        .danger-text { color: var(--danger-red); font-weight: bold; }
+        .safe-text { color: var(--accent-gold); font-weight: bold; }
+
+        /* Q3: 3步驟 SOP */
+        .step-list {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+        .step-item {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 30px;
+        }
+        .step-item::before {
+            counter-increment: step-counter;
+            content: "0" counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 2rem;
+            font-weight: 900;
+            color: #333;
+            line-height: 1;
+        }
+        .step-item h3 { color: var(--text-main); margin-bottom: 5px; }
+        .step-item p { color: var(--text-sub); font-size: 0.9rem; }
+
+        /* Q4: 硬體展示 (用 CSS 模擬質感) */
+        .hardware-mockup {
+            background: #2a1f16; /* 深胡桃木色模擬 */
+            padding: 40px;
+            text-align: center;
+            border-radius: 4px;
+            border: 1px solid #443322;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .mockup-text {
+            color: #fff;
+            font-family: serif; /* 襯線體增加高級感 */
+            letter-spacing: 2px;
+            border: 1px solid rgba(255,255,255,0.3);
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+        }
+
+        /* CTA Button */
+        .cta-btn {
+            display: block;
+            width: 100%;
+            background: var(--accent-gold);
+            color: #000;
+            text-align: center;
+            padding: 18px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px; /* 膠囊狀 */
+            margin-top: 20px;
+            box-shadow: 0 0 20px rgba(197, 160, 101, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(197, 160, 101, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(197, 160, 101, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(197, 160, 101, 0); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>別讓一個網路誤會<br><span class="highlight">毀了 30 年商譽</span></h1>
+            <p class="intro">專為當舖業設計的「評論防火牆」。<br>攔截負評、引導好評，讓你的 Google 地圖成為最強名片。</p>
+        </header>
+
+        <section>
+            <h2>沒裝系統 vs 有裝系統</h2>
+            <div class="flow-chart">
+                <div class="flow-box bad-path">
+                    <span class="flow-title" style="color:#aaa;">❌ 傳統狀況：</span>
+                    <p>客人有誤會或不爽 😡</p>
+                    <div class="arrow-down">⬇</div>
+                    <p>直接去 Google 留 <span style="color:var(--danger-red)">1 星負評</span> 發洩</p>
+                    <div class="arrow-down">⬇</div>
+                    <p style="color:var(--text-sub); font-size:0.9rem;">結果：全世界都看到，老闆百口莫辯。</p>
+                </div>
+
+                <div class="flow-box good-path">
+                    <span class="flow-title" style="color:var(--accent-gold);">✅ 啟用守護系統：</span>
+                    <p>引導客人掃描立牌 📲</p>
+                    
+                    <div style="display:flex; gap:10px; margin-top:10px;">
+                        <div style="flex:1; background:#222; padding:10px; border-radius:4px; text-align:center;">
+                            <span style="display:block; font-size:20px;">😡</span>
+                            <span style="font-size:12px; color:#aaa;">有意見？</span>
+                            <div style="color:var(--safe-green); font-weight:bold; font-size:13px; margin-top:5px;">導流至 LINE</div>
+                            <span style="font-size:10px; color:#666;">私下解決，不上檯面</span>
+                        </div>
+                        <div style="flex:1; background:#222; padding:10px; border-radius:4px; text-align:center;">
+                            <span style="display:block; font-size:20px;">😊</span>
+                            <span style="font-size:12px; color:#aaa;">很滿意？</span>
+                            <div style="color:var(--accent-gold); font-weight:bold; font-size:13px; margin-top:5px;">導流至 Google</div>
+                            <span style="font-size:10px; color:#666;">累積真實好評</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>買水軍？小心被鎖號</h2>
+            <p style="color:#aaa; text-align:center; margin-bottom:20px;">Google AI 現在抓很兇，買假評論 = 自殺。</p>
+            
+            <div class="comparison">
+                <div class="compare-card">
+                    <div class="compare-img" style="background:#300; color:#f55;">❌ 假評論</div>
+                    <p class="danger-text">帳號停權</p>
+                    <p style="color:#888; margin-top:5px;">機器人語氣僵硬<br>Google 判定違規<br>直接下架商家</p>
+                </div>
+                <div class="compare-card">
+                    <div class="compare-img" style="background:#222; border:1px solid var(--accent-gold); color:var(--accent-gold);">✅ 守護者系統</div>
+                    <p class="safe-text">真實權重</p>
+                    <p style="color:#888; margin-top:5px;">隨機生成自然語句<br>真實客人帳號<br>安全穩定加分</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>阿弟阿姨都會用</h2>
+            <p style="color:#aaa; text-align:center; margin-bottom:30px;">無需學習，只要三秒鐘。</p>
+            
+            <ol class="step-list">
+                <li class="step-item">
+                    <h3>拿出立牌</h3>
+                    <p>服務結束後，將「胡桃木立牌」推到客人面前。</p>
+                </li>
+                <li class="step-item">
+                    <h3>客人掃碼</h3>
+                    <p>客人手機掃描，自動判斷滿意度。</p>
+                </li>
+                <li class="step-item">
+                    <h3>一鍵完成</h3>
+                    <p>系統自動生成「安心好評」，客人只要按複製貼上。</p>
+                </li>
+            </ol>
+        </section>
+
+        <section style="border:none;">
+            <h2>不只軟體，更是門面</h2>
+            <div class="hardware-mockup">
+                <p style="color:#aaa; font-size:0.9rem; margin-bottom:10px;">包含訂製硬體</p>
+                <div class="mockup-text">PREMIUM WALNUT STAND</div>
+                <p style="color:#C5A065; margin-top:15px; font-size:0.9rem;">北美黑胡桃木實木 | UV立體白墨 | 亮金Logo</p>
+            </div>
+            
+            <a href="demo.html" class="cta-btn">👉 點此演示系統給老闆看</a>
+            <p style="text-align:center; margin-top:15px; font-size:0.8rem; color:#666;">(點擊將開啟顧客端模擬畫面)</p>
+        </section>
+
+    </div>
+
+</body>
+</html>
