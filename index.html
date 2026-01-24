@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>您的商譽守護系統 - 老闆專用</title>
+    <title>您的商譽守護系統 - 星宇優質當舖</title>
     <style>
         :root {
-            --bg-color: #000000; /* 黑色底，強調權威 */
+            --bg-color: #000000; 
             --text-main: #FFFFFF;
             --text-sub: #AAAAAA;
-            --accent-gold: #C5A065; /* 星宇金 */
+            --accent-gold: #C5A065; 
             --danger-red: #FF4D4D;
             --safe-green: #4CAF50;
             --card-bg: #1A1A1A;
@@ -31,7 +31,6 @@
             padding: 20px;
         }
 
-        /* Hero Section */
         header {
             padding: 60px 20px;
             text-align: center;
@@ -54,7 +53,6 @@
             margin-top: 15px;
         }
 
-        /* Section Styling */
         section {
             padding: 40px 20px;
             border-bottom: 1px solid #222;
@@ -76,7 +74,7 @@
             margin: 15px auto 0;
         }
 
-        /* Q1: 智慧分流圖解 */
+        /* Q1: 流程圖 */
         .flow-chart {
             display: flex;
             flex-direction: column;
@@ -147,23 +145,150 @@
         .step-item h3 { color: var(--text-main); margin-bottom: 5px; }
         .step-item p { color: var(--text-sub); font-size: 0.9rem; }
 
-        /* Q4: 硬體展示 (用 CSS 模擬質感) */
-        .hardware-mockup {
-            background: #2a1f16; /* 深胡桃木色模擬 */
-            padding: 40px;
+        /* Q4: 硬體展示區 - 整合版 */
+        .hardware-showcase {
+            background: linear-gradient(180deg, #1A1A1A 0%, #0D0D0D 100%);
+            padding: 60px 20px;
             text-align: center;
-            border-radius: 4px;
-            border: 1px solid #443322;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-        .mockup-text {
-            color: #fff;
-            font-family: serif; /* 襯線體增加高級感 */
-            letter-spacing: 2px;
-            border: 1px solid rgba(255,255,255,0.3);
-            display: inline-block;
-            padding: 10px 20px;
+
+        .hw-title {
+            font-size: 28px;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .hw-subtitle {
+            font-size: 15px;
+            color: var(--text-sub);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        /* 壓克力立牌模擬 */
+        .acrylic-mockup-container {
+            position: relative;
+            width: 200px;
+            margin: 0 auto 50px auto;
+            perspective: 1000px;
+        }
+
+        .acrylic-board {
+            width: 160px;
+            height: 220px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(240,240,240,0.05) 100%);
+            border: 1px solid rgba(197, 160, 101, 0.3);
+            border-radius: 12px 12px 0 0;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            backdrop-filter: blur(8px);
+            box-shadow: 
+                inset 0 0 30px rgba(197, 160, 101, 0.1),
+                0 10px 40px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .engraving-content {
+            color: var(--accent-gold);
+            font-weight: bold;
+            letter-spacing: 1px;
+            opacity: 1;
+            text-shadow: 0 0 10px rgba(197, 160, 101, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* 實木底座 */
+        .wood-base {
+            width: 180px;
+            height: 35px;
+            background: linear-gradient(90deg, #5D4037 0%, #8D6E63 50%, #5D4037 100%);
+            border-radius: 20px;
+            margin: -5px auto 0 auto;
+            position: relative;
+            z-index: 3;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+        }
+
+        /* LED 發光效果 */
+        .led-glow {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 20px;
+            background: rgba(197, 160, 101, 0.6);
+            filter: blur(15px);
+            z-index: 1;
+            animation: breathe 3s infinite ease-in-out;
+        }
+
+        @keyframes breathe {
+            0%, 100% { opacity: 0.4; filter: blur(15px); }
+            50% { opacity: 0.7; filter: blur(20px); }
+        }
+
+        /* 規格列表 */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .spec-item {
+            background: var(--card-bg);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .spec-icon {
+            font-size: 20px;
+        }
+
+        .spec-text h4 {
+            margin: 0;
+            font-size: 13px;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .spec-text p {
+            margin: 3px 0 0 0;
+            font-size: 14px;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        /* QR Code 裝飾框 */
+        .mock-qr {
+            width: 60px;
+            height: 60px;
+            border: 2px solid var(--accent-gold);
             margin-top: 10px;
+            position: relative;
+        }
+        .mock-qr::after {
+            content: '';
+            position: absolute;
+            top: 5px; left: 5px; right: 5px; bottom: 5px;
+            background: rgba(197, 160, 101, 0.2);
         }
 
         /* CTA Button */
@@ -177,7 +302,7 @@
             font-size: 1.1rem;
             font-weight: bold;
             text-decoration: none;
-            border-radius: 50px; /* 膠囊狀 */
+            border-radius: 50px;
             margin-top: 20px;
             box-shadow: 0 0 20px rgba(197, 160, 101, 0.3);
             animation: pulse 2s infinite;
@@ -252,13 +377,13 @@
         </section>
 
         <section>
-            <h2>阿弟阿姨都會用</h2>
+            <h2>極簡SOP</h2>
             <p style="color:#aaa; text-align:center; margin-bottom:30px;">無需學習，只要三秒鐘。</p>
             
             <ol class="step-list">
                 <li class="step-item">
                     <h3>拿出立牌</h3>
-                    <p>服務結束後，將「胡桃木立牌」推到客人面前。</p>
+                    <p>服務結束後，將「客製化立牌」推到客人面前。</p>
                 </li>
                 <li class="step-item">
                     <h3>客人掃碼</h3>
@@ -271,15 +396,58 @@
             </ol>
         </section>
 
-        <section style="border:none;">
-            <h2>不只軟體，更是門面</h2>
-            <div class="hardware-mockup">
-                <p style="color:#aaa; font-size:0.9rem; margin-bottom:10px;">包含訂製硬體</p>
-                <div class="mockup-text">PREMIUM WALNUT STAND</div>
-                <p style="color:#C5A065; margin-top:15px; font-size:0.9rem;">北美黑胡桃木實木 | UV立體白墨 | 亮金Logo</p>
+        <section class="hardware-showcase">
+            <h2 class="hw-title">不只軟體，更是門面</h2>
+            <p class="hw-subtitle">
+                擺脫廉價的護貝紙卡。<br>
+                用 5mm 厚實光影，點亮櫃檯的信任感。
+            </p>
+
+            <div class="acrylic-mockup-container">
+                <div class="acrylic-board">
+                    <div class="engraving-content">
+                        <span style="font-size:12px; letter-spacing:2px;">感謝您的信任</span>
+                        <div class="mock-qr"></div>
+                        <span style="font-size:10px; margin-top:5px;">掃碼留下這次體驗</span>
+                    </div>
+                </div>
+                <div class="led-glow"></div>
+                <div class="wood-base"></div>
             </div>
-            
-            <a href="demo.html" class="cta-btn">👉 點此演示系統給老闆看</a>
+
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <div class="spec-icon">💎</div>
+                    <div class="spec-text">
+                        <h4>Material</h4>
+                        <p>5mm 頂級澆鑄壓克力</p>
+                    </div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-icon">🌳</div>
+                    <div class="spec-text">
+                        <h4>Base</h4>
+                        <p>實木底座</p>
+                    </div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-icon">💡</div>
+                    <div class="spec-text">
+                        <h4>Light</h4>
+                        <p>3000K 暖光氛圍燈</p>
+                    </div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-icon">⚡</div>
+                    <div class="spec-text">
+                        <h4>Tech</h4>
+                        <p>雷射精雕背光工藝</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA 按鈕 -->
+            <a href="https://hanks920303-dev.github.io/star-pawnshop-review/" class="cta-btn" target="_blank" rel="noopener noreferrer">👉 點此試用系統</a>
             <p style="text-align:center; margin-top:15px; font-size:0.8rem; color:#666;">(點擊將開啟顧客端模擬畫面)</p>
         </section>
 
