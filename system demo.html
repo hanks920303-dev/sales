@@ -34,7 +34,7 @@
     <meta name="robots" content="noindex, nofollow">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <title>信譽通 智慧好評引流系統</title>
+    <title>商譽通 智慧好評引流系統</title>
     <style>
         :root {
             --bg-color: #ffffff;
@@ -65,11 +65,6 @@
             padding: 20px 0;
             text-align: center;
             border-bottom: 1px solid #EFEFEF;
-        }
-
-        .logo-container img {
-            max-width: 180px;
-            height: auto;
         }
 
         main {
@@ -148,17 +143,7 @@
             letter-spacing: 0.5px;
             text-decoration: none;
             display: inline-block;
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 1px solid var(--button-black);
-            color: var(--button-black);
-        }
-        
-        .btn-outline:hover {
-            background: #F5F5F5;
-        }
+        }   
 
         .btn-black {
             background: var(--button-black);
@@ -296,7 +281,7 @@
     <div class="brand-header" style="text-align: center; padding: 20px 0;">
         
         <h3 style="color: #8E7036; font-size: 1rem; letter-spacing: 3px; font-weight: 500; margin: 0 0 8px 0; opacity: 0.9;">
-            信譽通 當舖專用
+            商譽通 當舖專用
         </h3>
         <h1 style="color: #C5A065; font-size: 2rem; margin: 0; font-weight: 700; line-height: 1.2;">
             智慧好評引流系統
@@ -368,7 +353,7 @@
     </main>
 
     <footer>
-        &copy; 2026 信譽通 智慧好評引流系統<br>
+        &copy; 2026 商譽通 智慧好評引流系統<br>
         本評論由系統生成,僅供參考使用。
     </footer>
 
@@ -378,181 +363,11 @@
         // Google Place ID（商家專用）
         const GOOGLE_PLACE_ID = "ChIJieofP8SrQjQRlwZLciAHtGk";
         const GOOGLE_REVIEW_URL = `https://search.google.com/local/writereview?placeid=${GOOGLE_PLACE_ID}`;
-
-        // 1. 語句資料庫
-        const corpus = {
-            situation: {
-                urgent: [
-                    "這次因為急需資金週轉,還好有找到這裡。",
-                    "臨時需要一筆錢救急,感謝幫忙。",
-                    "剛好遇到資金缺口,幸好處理速度夠快。",
-                    "急用錢的時候真的不想被問東問西,還好這裡很乾脆。"
-                ],
-                firstTime: [
-                    "第一次踏進當舖其實蠻緊張的,但體驗比想像中好。",
-                    "原本對當舖有點刻板印象,來過之後完全改觀。",
-                    "第一次辦理借款,還好店長很有耐心引導。",
-                    "人生第一次來當舖,沒想到環境這麼明亮單純。"
-                ],
-                consult: [
-                    "本來只是先來問問看,沒有壓力。",
-                    "雖然還在考慮中,但店員解說的很詳細。",
-                    "只是先來諮詢行情,老闆也很客氣。"
-                ]
-            },
-            feature: {
-                speed: [
-                    "撥款速度真的超快!",
-                    "手續完全不拖泥帶水,馬上就拿到錢了。",
-                    "效率非常高,沒浪費什麼時間。",
-                    "辦理過程很俐落。"
-                ],
-                process: [
-                    "整個流程解釋得非常清楚。",
-                    "合約內容說明得很透明,讓人很放心。",
-                    "沒有繁瑣的步驟,簡單明瞭。",
-                    "有什麼要矩都先講清楚,這點很棒。"
-                ],
-                privacy: [
-                    "很注重客人的隱私,這點大推。",
-                    "空間規劃很有隱密性,不會尷尬。",
-                    "過程很低調,讓人很有安全感。",
-                    "不用擔心被奇怪的人看到,環境很單純。"
-                ],
-                rate: [
-                    "評估出來的額度跟方案很合理。",
-                    "不會亂開那種奇怪的利息。",
-                    "站在客人的角度規劃方案,很實在。",
-                    "鑑價很公道,沒有亂壓低價格。"
-                ],
-                service: [
-                    "服務人員態度很親切。",
-                    "溝通起來很舒服,不會有壓力。",
-                    "老闆人很好,有問必答。",
-                    "對待客人很客氣。"
-                ]
-            },
-            closing: [
-                "真心推薦給有需要的人。",
-                "大推!",
-                "有需要一定會再回來。",
-                "值得推薦的優質店家。",
-                "五星好評!"
-            ]
-        };
-
-        let selectedSituation = null;
-        let selectedFeatures = new Set();
-
-        function toggleTag(btn, type) {
-            const value = btn.getAttribute('data-value');
-
-            if (type === 'situation') {
-                const siblings = document.getElementById('situation-tags').children;
-                for (let sibling of siblings) {
-                    sibling.classList.remove('selected');
-                }
-                
-                if (selectedSituation === value) {
-                    selectedSituation = null;
-                } else {
-                    btn.classList.add('selected');
-                    selectedSituation = value;
-                }
-
-            } else if (type === 'feature') {
-                if (selectedFeatures.has(value)) {
-                    selectedFeatures.delete(value);
-                    btn.classList.remove('selected');
-                } else {
-                    selectedFeatures.add(value);
-                    btn.classList.add('selected');
-                }
-            }
-
-            generateText();
-        }
-
-        function generateText() {
-            let parts = [];
-
-            if (selectedSituation) {
-                const options = corpus.situation[selectedSituation];
-                parts.push(getRandom(options));
-            }
-
-            selectedFeatures.forEach(feature => {
-                const options = corpus.feature[feature];
-                parts.push(getRandom(options));
-            });
-
-            if (parts.length === 0) {
-                document.getElementById('reviewArea').value = "請點選上方標籤,組合您的真實體驗...";
-                return;
-            }
-
-            if (Math.random() > 0.3) {
-                parts.push(getRandom(corpus.closing));
-            }
-
-            document.getElementById('reviewArea').value = parts.join(" ");
-        }
-
-        function getRandom(arr) {
-            return arr[Math.floor(Math.random() * arr.length)];
-        }
-
-        // 主要功能：Copy & Go
-        async function copyAndGo() {
-            const reviewText = document.getElementById("reviewArea").value;
-            
-            // 驗證是否已選擇標籤
-            if (reviewText.includes("請點選")) {
-                showToast("請先選擇至少一個標籤喔!", "warning");
-                return;
-            }
-
-            try {
-                // 複製評論到剪貼簿
-                await navigator.clipboard.writeText(reviewText);
-                
-                // 顯示成功提示
-                showToast("✓ 評論已複製！準備跳轉...", "success");
-                
-                // 1.5 秒後自動跳轉到 Google 評論頁
-                setTimeout(() => {
-                    window.open(GOOGLE_REVIEW_URL, '_blank', 'noopener,noreferrer');
-                }, 1500);
-
-            } catch (err) {
-                // 降級方案：使用舊版 execCommand
-                const reviewArea = document.getElementById("reviewArea");
-                reviewArea.select();
-                reviewArea.setSelectionRange(0, 99999);
-                
-                try {
-                    document.execCommand("copy");
-                    showToast("✓ 評論已複製！準備跳轉...", "success");
-                    
-                    setTimeout(() => {
-                        window.open(GOOGLE_REVIEW_URL, '_blank', 'noopener,noreferrer');
-                    }, 1500);
-                } catch (fallbackErr) {
-                    showToast("複製失敗，請手動複製評論", "warning");
-                }
-            }
-        }
-
-        // Toast 通知系統
-        function showToast(msg, type = "success") {
-            const toast = document.getElementById("toast");
-            toast.innerText = msg;
-            toast.className = `show ${type}`;
-            
-            setTimeout(() => {
-                toast.className = toast.className.replace("show", "");
-            }, 3000);
-        }
     </script>
+
+    <script src="reviewdata.js"></script>
+
+    <script src="common.js"></script>
+
 </body>
 </html>
