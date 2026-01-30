@@ -323,7 +323,7 @@
                 </div>
             </div>
             
-            <textarea id="reviewArea" class="review-display" readonly>請點選上方標籤,組合您的真實體驗...</textarea>
+            <textarea id="reviewArea" class="review-display">請點選上方標籤,組合您的真實體驗...</textarea>
             
             <div class="action-row">
                 <button class="btn btn-black" onclick="copyAndGo()" style="width: 100%;">
@@ -340,7 +340,7 @@
             
             <p style="font-size:12px; margin: 15px 0 5px 0; color:#999;">或是手動前往</p>
             <!-- Hank推薦的店 -->
-            <a href="https://search.google.com/local/writereview?placeid=ChIJieofP8SrQjQRlwZLciAHtGk"target="_blank" rel="noopener noreferrer" class="btn btn-google">
+            <a id="manualgooglebtn" href="#" class="btn btn-google">
                 手動前往 Google Maps 留評
             </a>
             
@@ -360,7 +360,7 @@
     <div id="toast">已複製!請前往 Google 貼上</div>
 
     <script>
-        // Google Place ID（商家專用）
+        //Place ID
         const GOOGLE_PLACE_ID = "ChIJieofP8SrQjQRlwZLciAHtGk";
         const GOOGLE_REVIEW_URL = `https://search.google.com/local/writereview?placeid=${GOOGLE_PLACE_ID}`;
     </script>
